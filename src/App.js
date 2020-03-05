@@ -3,6 +3,7 @@ import "./App.css";
 import Clock from "./Clock";
 import uuid from "react-uuid";
 import RemoveBtn from "./Buttons/RemoveButton";
+import AddButton from "./Buttons/AddButton";
 
 class App extends React.Component {
   constructor() {
@@ -46,6 +47,8 @@ class App extends React.Component {
     return (
       <div>
         {this.mappingFunc()}
+        <AddButton addBtnFnc={this.addBtnListener}></AddButton>
+
         <RemoveBtn removeFnc={this.removeBtnListener}></RemoveBtn>
       </div>
     );
