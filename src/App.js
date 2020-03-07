@@ -7,9 +7,8 @@ import './App.css';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    let now = new Date();
     this.state = {
-      time: now,
+      time: new Date(),
       timezones: [
         {
           id: 0,
@@ -57,14 +56,12 @@ export default class App extends React.Component {
     });
   }
 
-  clockTick = () => {
-    this.setState({
-      time: new Date(),
-    });
-  }
-
   componentDidMount() {
-    this.interval = setInterval(this.clockTick, 1000);
+    this.interval = setInterval(() => {
+      this.setState({
+        time: new Date(),
+      });
+    }, 1000);
   }
 
   componentWillUnmount() {
